@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #form
+  form
+    fieldset(data-question=1)
+      input(type='radio' val="1")
+      input(type='radio' val="2")
+    //- fieldset(data-question=2)
+    //- fieldset(data-question=3)
+    //- fieldset(data-question=4)
+    //- fieldset(data-question=5)
+    //- fieldset(data-question=6)
+    //- fieldset(data-question=7)
+    //- fieldset(data-question=8)
+    //- fieldset(data-question=9)
+    //- fieldset(data-question=10)
+    button#submit Submit
+
+  #results
+
