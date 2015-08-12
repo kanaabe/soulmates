@@ -10,9 +10,6 @@ var users = require('./routes/results');
 
 var app = express();
 
-var dotenv = require('dotenv');
-dotenv.load();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
