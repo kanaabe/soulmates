@@ -6,8 +6,8 @@ $('#form').submit function(){
 
 
 
-  // $('.class')
-  //   .html = "<div>"
-  //   .transition('slidein')
+  $('.class')
+    .html = "<div>"
+    .transition('slidein')
 })
 

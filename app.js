@@ -1,4 +1,6 @@
 var express = require('express');
+var stylus = require('stylus');
+var nib = require('nib');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,10 +11,19 @@ var routes = require('./routes/index');
 var users = require('./routes/results');
 
 var app = express();
-
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .use(nib())
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(stylus.middleware(
+  { src: __dirname + '/public'
+  , compile: compile
+  }
+))
 app.set('view options', { locals: { scripts: ['jquery.js'] } });
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

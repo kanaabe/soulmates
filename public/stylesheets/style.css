@@ -1,13 +1,215 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-#typeform {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  font-family: 'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif';
+  font-smoothing: antialiased;
+  font-size: 30px;
+}
+a {
+  color: #00b7ff;
+}
+.welcome {
+  width: 100%;
+  height: 100vh;
+  font-family: 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif';
+  font-smoothing: antialiased;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-top: 35%;
+}
+.welcome h4 {
+  margin-bottom: 30px;
+}
+form {
+  font-family: 'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif';
+  font-smoothing: antialiased;
+  font-size: 30px;
+}
+form fieldset {
+  display: none;
+}
+form button {
+  font-family: 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif';
+  font-smoothing: antialiased;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.avant-garde-button,
+.avant-garde-button-black {
+  display: inline-block;
+  position: relative;
+  padding: 15px 30px;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  border: none;
+  background-color: #efefef;
+  font-family: 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif';
+  font-smoothing: antialiased;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.25s, color 0.25s;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.avant-garde-button:focus,
+.avant-garde-button-black:focus,
+.avant-garde-button:hover,
+.avant-garde-button-black:hover {
+  outline: none;
+  background-color: #e5e5e5;
+}
+.avant-garde-button[data-state='success'],
+.avant-garde-button-black[data-state='success'],
+.avant-garde-button.is-success,
+.avant-garde-button-black.is-success {
+  background-color: #4f8200;
+  color: #fff;
+}
+.avant-garde-button[data-state='success']:hover,
+.avant-garde-button-black[data-state='success']:hover,
+.avant-garde-button.is-success:hover,
+.avant-garde-button-black.is-success:hover {
+  background-color: #3b6200;
+}
+.avant-garde-button[data-state='error'],
+.avant-garde-button-black[data-state='error'],
+.avant-garde-button.is-error,
+.avant-garde-button-black.is-error,
+.avant-garde-button[data-state='error']:focus,
+.avant-garde-button-black[data-state='error']:focus,
+.avant-garde-button.is-error:focus,
+.avant-garde-button-black.is-error:focus {
+  background-color: #c33;
+  color: #fff;
+}
+.avant-garde-button[data-state='error']:hover,
+.avant-garde-button-black[data-state='error']:hover,
+.avant-garde-button.is-error:hover,
+.avant-garde-button-black.is-error:hover,
+.avant-garde-button[data-state='error']:focus:hover,
+.avant-garde-button-black[data-state='error']:focus:hover,
+.avant-garde-button.is-error:focus:hover,
+.avant-garde-button-black.is-error:focus:hover {
+  background-color: #992626;
+}
+.avant-garde-button[data-state='loading'],
+.avant-garde-button-black[data-state='loading'],
+.avant-garde-button.is-loading,
+.avant-garde-button-black.is-loading,
+.avant-garde-button[data-state='loading'][disabled],
+.avant-garde-button-black[data-state='loading'][disabled],
+.avant-garde-button.is-loading[disabled],
+.avant-garde-button-black.is-loading[disabled],
+.avant-garde-button[data-state='loading'][disabled]:hover,
+.avant-garde-button-black[data-state='loading'][disabled]:hover,
+.avant-garde-button.is-loading[disabled]:hover,
+.avant-garde-button-black.is-loading[disabled]:hover {
+  background-color: #6a0bc1;
+  color: transparent !important;
+}
+.avant-garde-button[data-state='loading']::before,
+.avant-garde-button-black[data-state='loading']::before,
+.avant-garde-button.is-loading::before,
+.avant-garde-button-black.is-loading::before,
+.avant-garde-button[data-state='loading'][disabled]::before,
+.avant-garde-button-black[data-state='loading'][disabled]::before,
+.avant-garde-button.is-loading[disabled]::before,
+.avant-garde-button-black.is-loading[disabled]::before,
+.avant-garde-button[data-state='loading'][disabled]:hover::before,
+.avant-garde-button-black[data-state='loading'][disabled]:hover::before,
+.avant-garde-button.is-loading[disabled]:hover::before,
+.avant-garde-button-black.is-loading[disabled]:hover::before {
+  display: block;
+  content: '';
+}
+.avant-garde-button > i,
+.avant-garde-button-black > i {
+  line-height: 0;
+  vertical-align: -8px;
+  margin: 0 10px 0 -15px;
+}
+.avant-garde-button[disabled],
+.avant-garde-button-black[disabled],
+.avant-garde-button.is-disabled,
+.avant-garde-button-black.is-disabled,
+.avant-garde-button[disabled]:hover,
+.avant-garde-button-black[disabled]:hover,
+.avant-garde-button.is-disabled:hover,
+.avant-garde-button-black.is-disabled:hover {
+  background-color: #efefef;
+  cursor: default;
+  color: rgba(0,0,0,0.5);
+}
+.avant-garde-button[disabled][data-state='success'],
+.avant-garde-button-black[disabled][data-state='success'],
+.avant-garde-button.is-disabled[data-state='success'],
+.avant-garde-button-black.is-disabled[data-state='success'],
+.avant-garde-button[disabled]:hover[data-state='success'],
+.avant-garde-button-black[disabled]:hover[data-state='success'],
+.avant-garde-button.is-disabled:hover[data-state='success'],
+.avant-garde-button-black.is-disabled:hover[data-state='success'],
+.avant-garde-button[disabled].is-success,
+.avant-garde-button-black[disabled].is-success,
+.avant-garde-button.is-disabled.is-success,
+.avant-garde-button-black.is-disabled.is-success,
+.avant-garde-button[disabled]:hover.is-success,
+.avant-garde-button-black[disabled]:hover.is-success,
+.avant-garde-button.is-disabled:hover.is-success,
+.avant-garde-button-black.is-disabled:hover.is-success {
+  background-color: #4f8200;
+  color: #b0d766;
+}
+.avant-garde-button[disabled][data-state='error'],
+.avant-garde-button-black[disabled][data-state='error'],
+.avant-garde-button.is-disabled[data-state='error'],
+.avant-garde-button-black.is-disabled[data-state='error'],
+.avant-garde-button[disabled]:hover[data-state='error'],
+.avant-garde-button-black[disabled]:hover[data-state='error'],
+.avant-garde-button.is-disabled:hover[data-state='error'],
+.avant-garde-button-black.is-disabled:hover[data-state='error'],
+.avant-garde-button[disabled].is-error,
+.avant-garde-button-black[disabled].is-error,
+.avant-garde-button.is-disabled.is-error,
+.avant-garde-button-black.is-disabled.is-error,
+.avant-garde-button[disabled]:hover.is-error,
+.avant-garde-button-black[disabled]:hover.is-error,
+.avant-garde-button.is-disabled:hover.is-error,
+.avant-garde-button-black.is-disabled:hover.is-error {
+  background-color: #c33;
+  color: #f4acb2;
+}
+.avant-garde-button.is-block,
+.avant-garde-button-black.is-block {
+  width: 100%;
+  text-align: center;
+}
+.avant-garde-button.is-small,
+.avant-garde-button-black.is-small {
+  font-size: 11px;
+  padding: 10px 20px;
+}
+.avant-garde-button.is-tiny,
+.avant-garde-button-black.is-tiny {
+  font-size: 11px;
+  padding: 6px 12px 5px;
+}
+.avant-garde-button-black {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.avant-garde-button-black:focus,
+.avant-garde-button-black:hover {
+  background-color: #6a0bc1;
+}
+.avant-garde-button-black[disabled],
+.avant-garde-button-black.is-disabled,
+.avant-garde-button-black[disabled]:hover,
+.avant-garde-button-black.is-disabled:hover {
+  background-color: #666;
+  color: rgba(255,255,255,0.75);
 }

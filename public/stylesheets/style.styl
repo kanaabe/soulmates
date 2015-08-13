@@ -1,0 +1,137 @@
+default-avant-garde-font-size = 13px
+default-garamond-font-size = 17px
+json('../../node_modules/artsy-ezel-components/stylus_lib/colors.json')
+
+body
+  height 100%
+  width 100%
+  font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
+  font-smoothing antialiased
+  font-size 30px
+
+a
+  color #00B7FF
+
+.welcome
+  width 100%
+  height 100vh
+  font-family 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif'
+  font-smoothing antialiased
+  text-transform uppercase
+  letter-spacing 1px
+  text-align center
+  padding-top 35%
+  h4
+    margin-bottom 30px
+
+form
+  font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
+  font-smoothing antialiased
+  font-size 30px
+  fieldset
+    display none
+  button
+    font-family 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif'
+    font-smoothing antialiased
+    text-transform uppercase
+    letter-spacing 1px
+    text-align center
+
+garamond()
+  font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
+  font-smoothing antialiased
+
+avant-garde()
+  font-family 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif'
+  font-smoothing antialiased
+  text-transform uppercase
+  letter-spacing 1px
+
+.avant-garde-button
+  display inline-block
+  position relative
+  padding 15px 30px
+  font-size 13px
+  line-height 1
+  cursor pointer
+  border none
+  background-color gray-lightest-color
+  avant-garde()
+  transition background-color 0.25s, color 0.25s
+  border 1px solid transparent
+  text-decoration none
+  &:focus, &:hover
+    outline none
+    background-color gray-lighter-color
+  // States
+  &[data-state='success'], &.is-success
+    background-color green-color
+    color #fff
+    &:hover
+      background-color darken(green-color, 25%)
+  &[data-state='error'], &.is-error
+    &, &:focus
+      background-color red-color
+      color #fff
+      &:hover
+        background-color darken(red-color, 25%)
+  &[data-state='loading'], &.is-loading
+    &, &[disabled], &[disabled]:hover
+      background-color purple-color
+      color transparent !important
+      // Note:
+      // Giving the loading state to input[type='submit']
+      // or input[type='button'] will *not* display a spinner.
+      // These elements don't support psuedo-elements.
+      &::before
+        display block
+        content ''
+        spinner(25px, 6px, #fff)
+  // Handle icons
+  > i
+    line-height 0
+    vertical-align -8px
+    margin 0 10px 0 -15px
+
+  &[disabled], &.is-disabled, &.is-disabled
+    &, &:hover
+      background-color gray-lightest-color
+      cursor default
+      color rgba(black, 0.5)
+      &[data-state='success'], &.is-success
+        background-color green-color
+        color green-light-color
+      &[data-state='error'], &.is-error
+        background-color red-color
+        color red-light-color
+
+  // Structural variants
+  &.is-block
+    width 100%
+    text-align center
+  &.is-small
+    font-size 11px
+    padding 10px 20px
+    &[data-state='loading'], &.is-loading
+      &::before
+        spinner(16px, 4px, #fff)
+  &.is-tiny
+    font-size 11px
+    padding 6px 12px 5px
+    &[data-state='loading'], &.is-loading
+      &::before
+        spinner(12px, 3px, #fff)
+
+// Stylistic variants
+.avant-garde-button-black
+  @extends .avant-garde-button
+  text-align center
+  background-color black
+  color #fff
+  border 1px solid transparent
+  &:focus, &:hover
+    background-color purple-color
+  &[disabled], &.is-disabled
+    &, &:hover
+      background-color gray-darker-color
+      color rgba(white, 0.75)

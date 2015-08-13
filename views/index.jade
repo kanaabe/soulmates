@@ -1,21 +1,82 @@
 extends layout
 
 block content
-  #form
+  .welcome
+    h1 Artsy Soulmates
+    h4 "There is a light at the end of the tunnel"
+    .get-started.avant-garde-button-black Get Started
+
   form
-    fieldset(data-question=1)
-      input(type='radio' val="1")
-      input(type='radio' val="2")
-    //- fieldset(data-question=2)
-    //- fieldset(data-question=3)
-    //- fieldset(data-question=4)
-    //- fieldset(data-question=5)
-    //- fieldset(data-question=6)
-    //- fieldset(data-question=7)
-    //- fieldset(data-question=8)
-    //- fieldset(data-question=9)
-    //- fieldset(data-question=10)
-    button#submit Submit
+    fieldset(data-question=1) Which artwork best describes your drawing?
+      input(type='radio' value="1" name="whichartwork")
+      label Michaelangelo
+      input(type='radio' value="2" name="whichartwork")
+      label Van Gogh
+      input(type='radio' value="3" name="whichartwork")
+      label Matisse
+      input(type='radio' value="4" name="whichartwork")
+      label Kahlo
+    fieldset(data-question=2) Do you like art?
+      input(type='radio' value="no" name="likeart")
+      input(type='radio' value="yes" name="likeart")
+    fieldset(data-question=3) How would you describe your political beliefs?
+      input(type='radio' value="conservative" name="politics")
+      input(type='radio' value="socialist" name="politics")
+      input(type='radio' value="oppositional" name="politics")
+      input(type='radio' value="revolutionary" name="politics")
+      input(type='radio' value="undecided" name="politics")
+    fieldset(data-question=4) If you could live in any other time period it would be:
+      input(type='radio' value="renaissance" name="timeperiod")
+      input(type='radio' value="19thcentury" name="timeperiod")
+      input(type='radio' value="1900" name="timeperiod")
+      input(type='radio' value="1920" name="timeperiod")
+      input(type='radio' value="1930" name="timeperiod")
+      input(type='radio' value="1960" name="timeperiod")
+      input(type='radio' value="1980" name="timeperiod")
+      input(type='radio' value="1990" name="timeperiod")
+      input(type='radio' value="2000" name="timeperiod")
+    fieldset(data-question=5) Where do you want to visit most?
+      input(type='radio' value="newyork" name="visit")
+      input(type='radio' value="paris" name="visit")
+      input(type='radio' value="madrid" name="visit")
+      input(type='radio' value="santafe" name="visit")
+      input(type='radio' value="florence" name="visit")
+      input(type='radio' value="london" name="visit")
+      input(type='radio' value="shanghai" name="visit")
+      input(type='radio' value="mexicocity" name="visit")
+      input(type='radio' value="tokyo" name="visit")
+    fieldset(data-question=6) Pick your ideal pet.
+      input(type='radio' value="dog" name="pet")
+      input(type='radio' value="deer" name="pet")
+      input(type='radio' value="dinosaur" name="pet")
+      input(type='radio' value="shark" name="pet")
+      input(type='radio' value="cat" name="pet")
+    fieldset(data-question=7) How would you want to spend your day off?
+      input(type='radio' value="desert" name="dayoff")
+      input(type='radio' value="tinkering" name="dayoff")
+      input(type='radio' value="hanging" name="dayoff")
+      input(type='radio' value="chess" name="dayoff")
+      input(type='radio' value="redecorating" name="dayoff")
+    fieldset(data-question=8) Your ideal party:
+      input(type='radio' value="life" name="party")
+      input(type='radio' value="host" name="party")
+      input(type='radio' value="debator" name="party")
+      input(type='radio' value="crasher" name="party")
+      input(type='radio' value="planner" name="party")
+      input(type='radio' value="holdingcourt" name="party")
+    fieldset(data-question=9) Pick a food.
+      input(type='radio' value="lobster" name="food")
+      input(type='radio' value="pills" name="food")
+      input(type='radio' value="potatoes" name="food")
+      input(type='radio' value="sunflowerseeds" name="food")
+      input(type='radio' value="pills" name="food")
+      input(type='radio' value="pie" name="food")
+    fieldset(data-question=10) Beard or Mustache?
+      input(type='radio' value="mustache" name="bm")
+      input(type='radio' value="beard" name="bm")
+    fieldset(data-question=11) Dots or stripes?
+      input(type='radio' value="stripes" name="sd")
+      input(type='radio' value="dots" name="sd")
 
   #results
 
