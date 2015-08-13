@@ -7,7 +7,7 @@ mixin image(value, name, src)
 
 block content
   .welcome
-    h1 Who is your Artistic Soulmate?
+    h1 Who is your Artist Soulmate?
     h6 “Only through art can we emerge from ourselves and know what another person sees.” -- Marcel Proust
     .get-started.avant-garde-button-black Get Started
   #container
@@ -32,31 +32,28 @@ block content
           .col-md-6
             +image("2","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Georgia.jpg")
           .col-md-6
-            input(type='radio' value="4" name="whichartwork")
-            label
-              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Vincent-2.jpg")
+            +image("4","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Vincent-2.jpg")
         .row
           .col-md-6
-            input(type='radio' value="5" name="whichartwork")
-            label
-              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Jean-Michel.jpg")
+            +image("5","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Jean-Michel.jpg")
           .col-md-6
-            input(type='radio' value="6" name="whichartwork")
-            label
-              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Frida-1.jpg")
+            +image("6","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Frida-1.jpg")
       fieldset(data-question=2) Do you like art?
         .row
           input(type='radio' value="no" name="likeart")
+
         .row
           input(type='radio' value="yes" name="likeart")
       fieldset(data-question=3) How would you describe your political beliefs?
         .row
-          input.col-md-6(type='radio' value="conservative" name="politics")
-          input.col-md-6(type='radio' value="socialist" name="politics")
+          .col-md-6
+            +image("conservative","politics","")
+          .col-md-6(type='radio' value="socialist" name="politics")
         .row
-          input.col-md-4(type='radio' value="oppositional" name="politics")
-          input.col-md-4(type='radio' value="revolutionary" name="politics")
-          input.col-md-4(type='radio' value="undecided" name="politics")
+          .col-md-4(type='radio' value="oppositional" name="politics")
+          .col-md-4
+            +image("revolutionary", "politics", "")
+          .col-md-4(type='radio' value="undecided" name="politics")
       fieldset(data-question=4) If you could live in any other time period it would be:
         .row
           input.col-md-4(type='radio' value="renaissance" name="timeperiod")
