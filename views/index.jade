@@ -1,87 +1,131 @@
 extends layout
 
+mixin image(value, name, src)
+  input(type='radio' value=value name=name id=value)
+  label(for=value)
+    img(src=src)
+
 block content
   .welcome
-    h1 Artsy Soulmates
-    h4 "There is a light at the end of the tunnel"
+    h1 Who is your Artistic Soulmate?
+    h6 “Only through art can we emerge from ourselves and know what another person sees.” -- Marcel Proust
     .get-started.avant-garde-button-black Get Started
+  #container
+    .sketch
+      p Sketch something.
+      .seconds 30
+      .canvas
+        include canvas.html
+      .done.avant-garde-button-black Done
 
-  .sketch
-    p Draw something.
-    .seconds 30
-    .canvas
-      include canvas.html
-  form
-    fieldset(data-question=1) Which artwork best describes your drawing?
-      input(type='radio' value="1" name="whichartwork")
-      label Michaelangelo
-      input(type='radio' value="2" name="whichartwork")
-      label Van Gogh
-      input(type='radio' value="3" name="whichartwork")
-      label Matisse
-      input(type='radio' value="4" name="whichartwork")
-      label Kahlo
-    fieldset(data-question=2) Do you like art?
-      input(type='radio' value="no" name="likeart")
-      input(type='radio' value="yes" name="likeart")
-    fieldset(data-question=3) How would you describe your political beliefs?
-      input(type='radio' value="conservative" name="politics")
-      input(type='radio' value="socialist" name="politics")
-      input(type='radio' value="oppositional" name="politics")
-      input(type='radio' value="revolutionary" name="politics")
-      input(type='radio' value="undecided" name="politics")
-    fieldset(data-question=4) If you could live in any other time period it would be:
-      input(type='radio' value="renaissance" name="timeperiod")
-      input(type='radio' value="19thcentury" name="timeperiod")
-      input(type='radio' value="1900" name="timeperiod")
-      input(type='radio' value="1920" name="timeperiod")
-      input(type='radio' value="1930" name="timeperiod")
-      input(type='radio' value="1960" name="timeperiod")
-      input(type='radio' value="1980" name="timeperiod")
-      input(type='radio' value="1990" name="timeperiod")
-      input(type='radio' value="2000" name="timeperiod")
-    fieldset(data-question=5) Where do you want to visit most?
-      input(type='radio' value="newyork" name="visit")
-      input(type='radio' value="paris" name="visit")
-      input(type='radio' value="madrid" name="visit")
-      input(type='radio' value="santafe" name="visit")
-      input(type='radio' value="florence" name="visit")
-      input(type='radio' value="london" name="visit")
-      input(type='radio' value="shanghai" name="visit")
-      input(type='radio' value="mexicocity" name="visit")
-      input(type='radio' value="tokyo" name="visit")
-    fieldset(data-question=6) Pick your ideal pet.
-      input(type='radio' value="dog" name="pet")
-      input(type='radio' value="deer" name="pet")
-      input(type='radio' value="dinosaur" name="pet")
-      input(type='radio' value="shark" name="pet")
-      input(type='radio' value="cat" name="pet")
-    fieldset(data-question=7) How would you want to spend your day off?
-      input(type='radio' value="desert" name="dayoff")
-      input(type='radio' value="tinkering" name="dayoff")
-      input(type='radio' value="hanging" name="dayoff")
-      input(type='radio' value="chess" name="dayoff")
-      input(type='radio' value="redecorating" name="dayoff")
-    fieldset(data-question=8) Your ideal party:
-      input(type='radio' value="life" name="party")
-      input(type='radio' value="host" name="party")
-      input(type='radio' value="debator" name="party")
-      input(type='radio' value="crasher" name="party")
-      input(type='radio' value="planner" name="party")
-      input(type='radio' value="holdingcourt" name="party")
-    fieldset(data-question=9) Pick a food.
-      input(type='radio' value="lobster" name="food")
-      input(type='radio' value="pills" name="food")
-      input(type='radio' value="potatoes" name="food")
-      input(type='radio' value="sunflowerseeds" name="food")
-      input(type='radio' value="pills" name="food")
-      input(type='radio' value="pie" name="food")
-    fieldset(data-question=10) Beard or Mustache?
-      input(type='radio' value="mustache" name="bm")
-      input(type='radio' value="beard" name="bm")
-    fieldset(data-question=11) Dots or stripes?
-      input(type='radio' value="stripes" name="sd")
-      input(type='radio' value="dots" name="sd")
+    form
+      fieldset(data-question=1) Which artwork best describes your masterpiece?
+        .row.framed-canvas
+          canvas#completed-canvas(width=380 height=280)
+          img(src='/images/frame.png')
+        .row
+          .col-md-6
+            +image("1","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Pablo-2.jpg")
+          .col-md-6
+            +image("3","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Leonardo-2.jpg")
+        .row
+          .col-md-6
+            +image("2","whichartwork","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Georgia.jpg")
+          .col-md-6
+            input(type='radio' value="4" name="whichartwork")
+            label
+              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Vincent-2.jpg")
+        .row
+          .col-md-6
+            input(type='radio' value="5" name="whichartwork")
+            label
+              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Jean-Michel.jpg")
+          .col-md-6
+            input(type='radio' value="6" name="whichartwork")
+            label
+              img(src="https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/Q-1b-Frida-1.jpg")
+      fieldset(data-question=2) Do you like art?
+        .row
+          input(type='radio' value="no" name="likeart")
+        .row
+          input(type='radio' value="yes" name="likeart")
+      fieldset(data-question=3) How would you describe your political beliefs?
+        .row
+          input.col-md-6(type='radio' value="conservative" name="politics")
+          input.col-md-6(type='radio' value="socialist" name="politics")
+        .row
+          input.col-md-4(type='radio' value="oppositional" name="politics")
+          input.col-md-4(type='radio' value="revolutionary" name="politics")
+          input.col-md-4(type='radio' value="undecided" name="politics")
+      fieldset(data-question=4) If you could live in any other time period it would be:
+        .row
+          input.col-md-4(type='radio' value="renaissance" name="timeperiod")
+          input.col-md-4(type='radio' value="19thcentury" name="timeperiod")
+          input.col-md-4(type='radio' value="1900" name="timeperiod")
+        .row
+          input.col-md-4(type='radio' value="1920" name="timeperiod")
+          input.col-md-4(type='radio' value="1930" name="timeperiod")
+          input.col-md-4(type='radio' value="1960" name="timeperiod")
+        .row
+          input.col-md-4(type='radio' value="1980" name="timeperiod")
+          input.col-md-4(type='radio' value="1990" name="timeperiod")
+          input.col-md-4(type='radio' value="2000" name="timeperiod")
+      fieldset(data-question=5) Where do you want to visit most?
+        .row
+          input.col-md-4(type='radio' value="newyork" name="visit")
+          input.col-md-4(type='radio' value="paris" name="visit")
+          input.col-md-4(type='radio' value="madrid" name="visit")
+        .row
+          input.col-md-4(type='radio' value="santafe" name="visit")
+          input.col-md-4(type='radio' value="florence" name="visit")
+          input.col-md-4(type='radio' value="london" name="visit")
+        .row
+          input.col-md-4(type='radio' value="shanghai" name="visit")
+          input.col-md-4(type='radio' value="mexicocity" name="visit")
+          input.col-md-4(type='radio' value="tokyo" name="visit")
+      fieldset(data-question=6) Pick your ideal pet.
+        .row
+          input.col-md-6(type='radio' value="dog" name="pet")
+          input.col-md-6(type='radio' value="deer" name="pet")
+        .row
+          input.col-md-4(type='radio' value="dinosaur" name="pet")
+          input.col-md-4(type='radio' value="shark" name="pet")
+          input.col-md-4(type='radio' value="cat" name="pet")
+      fieldset(data-question=7) How would you want to spend your day off?
+        .row
+          input.col-md-6(type='radio' value="desert" name="dayoff")
+          input.col-md-6(type='radio' value="tinkering" name="dayoff")
+        .row
+          input.col-md-4(type='radio' value="hanging" name="dayoff")
+          input.col-md-4(type='radio' value="chess" name="dayoff")
+          input.col-md-4(type='radio' value="redecorating" name="dayoff")
+      fieldset(data-question=8) Your ideal party:
+        .row
+          input.col-md-4(type='radio' value="life" name="party")
+          input.col-md-4(type='radio' value="host" name="party")
+          input.col-md-4(type='radio' value="debator" name="party")
+        .row
+          input.col-md-4(type='radio' value="crasher" name="party")
+          input.col-md-4(type='radio' value="planner" name="party")
+          input.col-md-4(type='radio' value="costume" name="party")
+      fieldset(data-question=9) Pick a food.
+        .row
+          input.col-md-4(type='radio' value="lobster" name="food")
+          input.col-md-4(type='radio' value="pills" name="food")
+          input.col-md-4(type='radio' value="potatoes" name="food")
+        .row
+          input.col-md-3(type='radio' value="sunflowerseeds" name="food")
+          input.col-md-3(type='radio' value="pills" name="food")
+          input.col-md-3(type='radio' value="pie" name="food")
+          input.col-md-3(type='radio' value="soup" name="food")
+      fieldset(data-question=10) Beard or Mustache?
+        .row
+          input.col-md-6(type='radio' value="moustache" name="bm")
+          input.col-md-6(type='radio' value="beard" name="bm")
+      fieldset(data-question=11) Dots or stripes?
+        .row
+          input.col-md-6(type='radio' value="stripes" name="sd")
+          input.col-md-6(type='radio' value="dots" name="sd")
 
-  #results
-
+    #results
+      .loading-spinner
