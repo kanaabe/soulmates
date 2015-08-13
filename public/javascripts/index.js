@@ -1,11 +1,29 @@
 $('.get-started').click(function(){
   var question = 1;
   var answers = [];
+  var timer;
   $arr = $('fieldset')
   $('.welcome').fadeOut();
 
-  $("fieldset[data-question=" + question + "]").fadeIn();
+  var totalSeconds = 30;
+  var $seconds = $('.seconds')
+  var timer;
 
+  $('.sketch').fadeIn(function(){
+    timer = setInterval(setTime, 1000);
+  });
+
+  function setTime(){
+    totalSeconds--;
+    $('.seconds').html(totalSeconds);
+
+    if(totalSeconds == 0){
+      clearTimeout(timer);
+      $('.sketch').fadeOut();
+      $("fieldset[data-question=" + question + "]").fadeIn();
+    }
+
+  }
   $('form input').change(function(e){
     setQuestion(e)
   })

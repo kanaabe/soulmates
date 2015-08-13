@@ -16,10 +16,16 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  padding-top: 35%;
+  padding-top: 20%;
 }
 .welcome h4 {
   margin-bottom: 30px;
+}
+.sketch {
+  display: none;
+}
+canvas {
+  border: 1px solid #000;
 }
 form {
   font-family: 'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif';
