@@ -62,13 +62,25 @@ form button {
   letter-spacing: 1px;
   text-align: center;
 }
+form .imgcontainer {
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+form label {
+  display: block;
+}
 form label > img {
   opacity: 1;
-  height: 400px;
-  width: 400px;
+  height: 300px;
 }
 form label > img:hover {
   opacity: 0.5;
+}
+form input.image {
+  visibility: hidden;
 }
 #results {
   display: none;

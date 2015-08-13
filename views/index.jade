@@ -1,9 +1,10 @@
 extends layout
 
-mixin image(value, name, src)
-  input(type='radio' value=value name=name id=value)
-  label(for=value)
-    img(src=src)
+mixin image(value, name, src, label)
+  input(type='radio' value=value name=name id=value).image
+  .imgcontainer
+    label(for=value)=label
+      img(src=src)
 
 block content
   .welcome
@@ -19,7 +20,7 @@ block content
       .done.avant-garde-button-black Done
 
     form
-      fieldset(data-question=1) Which artwork best describes your masterpiece?
+      fieldset(data-question=1) Which sketch best describes your masterpiece?
         .row.framed-canvas
           canvas#completed-canvas(width=380 height=280)
           img(src='/images/frame.png')
@@ -41,88 +42,134 @@ block content
       fieldset(data-question=2) Do you like art?
         .row
           input(type='radio' value="no" name="likeart")
-
+          label(style="display: inline; margin-left: 10px;") Yes
         .row
           input(type='radio' value="yes" name="likeart")
+          label(style="display: inline; margin-left: 10px;") No
       fieldset(data-question=3) How would you describe your political beliefs?
         .row
           .col-md-6
-            +image("conservative","politics","")
-          .col-md-6(type='radio' value="socialist" name="politics")
+            +image("conservative","politics","https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/3-Conservative.jpg","Conservative")
+          .col-md-6
+            +image("socialist", "politics", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/3-Socialism.jpg","Socialist")
         .row
-          .col-md-4(type='radio' value="oppositional" name="politics")
           .col-md-4
-            +image("revolutionary", "politics", "")
-          .col-md-4(type='radio' value="undecided" name="politics")
+            +image("oppositional", "politics", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/3-Oppositional.jpg","Oppositional")
+          .col-md-4
+            +image("revolutionary", "politics", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/3-Revolutionary.jpg","Revolutionary")
+          .col-md-4
+            +image("undecided", "politics", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/3-Undecided.jpg","Undecided")
       fieldset(data-question=4) If you could live in any other time period it would be:
         .row
-          input.col-md-4(type='radio' value="renaissance" name="timeperiod")
-          input.col-md-4(type='radio' value="19thcentury" name="timeperiod")
-          input.col-md-4(type='radio' value="1900" name="timeperiod")
+          .col-md-4
+            +image("renaissance", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-Renaissance.jpg","Renaissance")
+          .col-md-4
+            +image("19thcentury", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-19th.jpg","19th Century")
+          .col-md-4
+            +image("1900", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1900.jpg","1900s")
         .row
-          input.col-md-4(type='radio' value="1920" name="timeperiod")
-          input.col-md-4(type='radio' value="1930" name="timeperiod")
-          input.col-md-4(type='radio' value="1960" name="timeperiod")
+          .col-md-4
+            +image("1920", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1920.jpg","1920s")
+          .col-md-4
+            +image("1930", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1930.jpg","1930s")
+          .col-md-4
+            +image("1960", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1970.jpg","1960s")
         .row
-          input.col-md-4(type='radio' value="1980" name="timeperiod")
-          input.col-md-4(type='radio' value="1990" name="timeperiod")
-          input.col-md-4(type='radio' value="2000" name="timeperiod")
+          .col-md-4
+            +image("1980", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1980.jpg","1980s")
+          .col-md-4
+            +image("1990", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-1990.jpg","1990s")
+          .col-md-4
+            +image("2000", "timeperiod", "https://s3.amazonaws.com/gravity-production/email_content/special_content/quiz/4-2000.jpg","2000s")
       fieldset(data-question=5) Where do you want to visit most?
         .row
-          input.col-md-4(type='radio' value="newyork" name="visit")
-          input.col-md-4(type='radio' value="paris" name="visit")
-          input.col-md-4(type='radio' value="madrid" name="visit")
+          .col-md-4
+            +image("newyork", "visit", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnsT0bbOJG_ZjIUWjnKJvqx4SP1YykShAmg1dIHYbgE_15WoghFEpodJM","New York")
+          .col-md-4
+            +image("paris", "visit", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRM3tpsCCrMJiUh1ABR2jyrThHlsOLxszd4_wm9_lWibASyVyAh5131e_79","Paris")
+          .col-md-4
+            +image("madrid", "visit", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRcpLfPPXxKh2NIHFw9CmFy2j0a4IV1tkqM60c_XQvVlQesGUe25dBO67w","Madrid")
         .row
-          input.col-md-4(type='radio' value="santafe" name="visit")
-          input.col-md-4(type='radio' value="florence" name="visit")
-          input.col-md-4(type='radio' value="london" name="visit")
+          .col-md-4
+            +image("santafe", "visit", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRtqzsKpHaxVbcJ9btGo9EXCsU13jwC0IS9WpeEq01PycheeWZJ6ttpMsu9","Santa Fe")
+          .col-md-4
+            +image("florence", "visit", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTebdnMQhhLoOWwsY-pmHKClkrw2Rb4huqS6f6YQ3wmaVZp3R-7I3taFEw","Florence")
+          .col-md-4
+            +image("london", "visit", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcShQZHUEdHpsYRK4IK7XNR0ihh_YxNFYY-fIlUEZNNQIORMMFfUrO253YVd","London")
         .row
-          input.col-md-4(type='radio' value="shanghai" name="visit")
-          input.col-md-4(type='radio' value="mexicocity" name="visit")
-          input.col-md-4(type='radio' value="tokyo" name="visit")
+          .col-md-4
+            +image("shanghai", "visit", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6pExjqv3GQrHhc6DujlAVHQQELFtBrpAtWiXTsmaSpf7Ec56DvuXs5fO","Shanghai")
+          .col-md-4
+            +image("mexicocity", "visit", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRKftnyQm5WeEiUyP0_8WojsEjbkQECQh4HD2F-36Bs4IOZyw9VXOuB0kW_","Mexico City")
+          .col-md-4
+            +image("tokyo", "visit", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_JhpIecExzyao2geQWjve4t6IJT3W5PVdUdNUQWdzrDF1Kk45NCt9bI","Tokyo")
       fieldset(data-question=6) Pick your ideal pet.
         .row
-          input.col-md-6(type='radio' value="dog" name="pet")
-          input.col-md-6(type='radio' value="deer" name="pet")
+          .col-md-6
+            +image("dog", "pet", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR0sdn4k4F_t6CVOTrEFH0HWN99tkMy7Y-vRQdsifaTQ0rg72NfF7GudKhP", "Dog")
+          .col-md-6
+            +image("deer", "pet", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSKwZqG5uHAFmpQdeZ7peQfXeQD1rJ5kndum7PczG9pPZi3UAYe_oNI8wzM", "Deer")
         .row
-          input.col-md-4(type='radio' value="dinosaur" name="pet")
-          input.col-md-4(type='radio' value="shark" name="pet")
-          input.col-md-4(type='radio' value="cat" name="pet")
+          .col-md-4
+            +image("dinosaur", "pet", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTQSIAkZpoXF9Fe0g8E5SqLIcrCJKiFecpxvnJfXJBQygpkNrcEROYjrNFr", "Dinosaur")
+          .col-md-4
+            +image("shark", "pet", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTzicq4vCxJxo2Z9TMGdPLo6TCTEZRU6tbLoeO-0Av6zC3KZ_YFQ_Ll7wlP", "Shark")
+          .col-md-4
+            +image( "cat", "pet", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTf97GaCdWb5n9OH_u6bPPoBi7jl6NLegJywgxiNsU1b0Jb-4emjNeRNDVt", "Cat")
       fieldset(data-question=7) How would you want to spend your day off?
         .row
-          input.col-md-6(type='radio' value="desert" name="dayoff")
-          input.col-md-6(type='radio' value="tinkering" name="dayoff")
+          .col-md-6
+            +image("desert", "dayoff", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTlUegnAXccuBDNCrbCs7LktIXtGbZ6cZ60pOUi-gD9uEMzi1ARoGiT5ZI", "Desert")
+          .col-md-6
+            +image("tinkering", "dayoff", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbaqISESnNzp97WKQ-pc28jLr0TEgMIdxTQv1LhjTzNdzLpY7y7vPb49g", "Tinkering")
         .row
-          input.col-md-4(type='radio' value="hanging" name="dayoff")
-          input.col-md-4(type='radio' value="chess" name="dayoff")
-          input.col-md-4(type='radio' value="redecorating" name="dayoff")
+          .col-md-4
+            +image("hanging", "dayoff", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQB_xTIUha3pqUUywpn8exw_wb7zD7-m8rvU-ZGP5ueWM_UHT3rrKfDtQ", "Hanging")
+          .col-md-4
+            +image("chess", "dayoff", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTBqiTQDFZjel2eRNu_WNAxr3XP--EAlUpSfdnAmECetVjsuC0TGngTDLM", "Chess")
+          .col-md-4
+            +image("redecorating", "dayoff", "http://thumbs.dreamstime.com/x/happy-family-redecorating-house-painting-13441102.jpg", "Redecorating")
       fieldset(data-question=8) Your ideal party:
         .row
-          input.col-md-4(type='radio' value="life" name="party")
-          input.col-md-4(type='radio' value="host" name="party")
-          input.col-md-4(type='radio' value="debator" name="party")
+          .col-md-4
+            +image("life", "party", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR2koK--N43ecHGq9dOK_qq5j2_alWpsPgMmLdSL2HFqBFR7EQJUv9Y8Rk", "Life of the party!")
+          .col-md-4
+            +image("host", "party", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWU4Rm7SRmMnGiO-lD0_P5cVMEUvZIQm5bC44D2r30e2Ilfw11Q9lKpg", "Host")
+          .col-md-4
+            +image("debator", "party", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSjTNuyVvFyHFAecXJT_JuP1MByGn4aAr1sa2zK8oxWnsewswgVRISHmn2b", "Debating")
         .row
-          input.col-md-4(type='radio' value="crasher" name="party")
-          input.col-md-4(type='radio' value="planner" name="party")
-          input.col-md-4(type='radio' value="costume" name="party")
+          .col-md-4
+            +image("crasher", "party", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwRkbRkFDY1LT7olLQesBLHQTSTa_1t24hZkHXS-4LJzqBC5Kcj35ygb5W", "Crasher")
+          .col-md-4
+            +image("planner", "party", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRxdWbtypa0QEnzDc_gYqz-B_QRxYbNmHVvf7o2w7VEcMj8XzNqURemdg", "Planner")
+          .col-md-4
+            +image("costume", "party", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSytIknEk5GzGn6QpHsZvfKijyXQqnKy_Emu1bd3ZHx-WyNysrNiDdqDPJp", "Costume")
       fieldset(data-question=9) Pick a food.
         .row
-          input.col-md-4(type='radio' value="lobster" name="food")
-          input.col-md-4(type='radio' value="pills" name="food")
-          input.col-md-4(type='radio' value="potatoes" name="food")
+          .col-md-4
+            +image("lobster", "food", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSujhy2hSDLY4A5EahVHrX8IZaA3-h7ls8UOo8LulmyyynN72BLyXZVunG3", "Lobster")
+          .col-md-4
+            +image("pills", "food", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSD_a54_PueziUlk0uM80SbvZhM6mcOmaj2SLP49T0VMG0E63gGnFfaDw", "Pills")
+          .col-md-4
+            +image("potatoes", "food", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR--ZZ2sPBkLBeYERCu5DwY-LRp3jj6BFNqAINQUOjBuYJzy-z0s2rKfLg", "Potatoes")
         .row
-          input.col-md-3(type='radio' value="sunflowerseeds" name="food")
-          input.col-md-3(type='radio' value="pills" name="food")
-          input.col-md-3(type='radio' value="pie" name="food")
-          input.col-md-3(type='radio' value="soup" name="food")
+          .col-md-4
+            +image("sunflowerseeds", "food", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbCY-QweWeeO3BN2bySu6PCgPG0F5wv0T3gVx6RObYhqyX1E4n-HwWaB4", "Sunflower seeds")
+          .col-md-4
+            +image("pie", "food", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT9NEpOPsNPimFFim3K3zp4MrMlvP6qlrjVCSyq7w-abouqbEMx_eSZB5Y", "Pie")
+          .col-md-4
+            +image("soup", "food", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvHWxxQbUtAsslceJt3JkKZ-7SkTrwR2iE571O5nlplX1I3J-7ElEMB68H", "Soup")
       fieldset(data-question=10) Beard or Mustache?
         .row
-          input.col-md-6(type='radio' value="moustache" name="bm")
-          input.col-md-6(type='radio' value="beard" name="bm")
+          .col-md-6
+            +image("moustache", "bm", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ0ujRdcZrbLIX4wjk9wXFeA7gld1UShOooZQicXSDK8bjJSVbegmiVqUQG", "Mustache")
+          .col-md-6
+            +image("beard", "bm", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoAkmtsYWCpjiQv3HHAgcgKHPEz5Jd0I449dvjD8Cx9YF1F6ZdB4-zWVqQ", "Beard")
       fieldset(data-question=11) Dots or stripes?
         .row
-          input.col-md-6(type='radio' value="stripes" name="sd")
-          input.col-md-6(type='radio' value="dots" name="sd")
-
+          .col-md-6
+            +image("stripes", "sd", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfOOIIT4iqGqPbOO177Tk-CIz1Bf3FyHnge3deRyc59f1sM9RC7QoFfTI", "Stripes")
+          .col-md-6
+            +image("dots", "sd", "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTggUJiEzida8KJD5g_onAvLDtZtsAAQu8jV5aoCJYp62IedXfNjiU8TxpwFQ", "Dots")
     #results
       .loading-spinner

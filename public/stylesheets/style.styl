@@ -11,6 +11,7 @@ body
 
 #container
   margin 5% !important
+
 a
   color #00B7FF
 
@@ -59,12 +60,21 @@ form
     text-transform uppercase
     letter-spacing 1px
     text-align center
+  .imgcontainer
+    width 400px
+    height 300px
+    overflow hidden
+    position relative
+    margin auto
+  label
+    display block
   label > img
     opacity 1
-    height 400px
-    width 400px
+    height 300px
   label > img:hover
     opacity .5
+  input.image
+    visibility hidden
 
 #results
   display none
