@@ -73,6 +73,17 @@ form label > img:hover {
 #results {
   display: none;
 }
+.result-section {
+  font-family: 'Adobe Garamond W08', 'adobe-garamond-pro', 'AGaramondPro-Regular', 'Times New Roman', 'Times', 'serif';
+  font-smoothing: antialiased;
+  text-align: center;
+}
+.result-section h1 {
+  font-size: 40px;
+}
+.result-section p {
+  font-size: 25px;
+}
 .avant-garde-button,
 .avant-garde-button-black {
   display: inline-block;
