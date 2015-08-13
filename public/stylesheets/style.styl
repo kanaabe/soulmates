@@ -3,18 +3,20 @@ default-garamond-font-size = 17px
 json('../../node_modules/artsy-ezel-components/stylus_lib/colors.json')
 
 body
-  height 100%
+  height 100vh
   width 100%
   font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
   font-smoothing antialiased
   font-size 30px
 
+#container
+  margin 5% !important
 a
   color #00B7FF
 
 .welcome
   width 100%
-  height 100vh
+  height 100%
   font-family 'ITC Avant Garde Gothic W04', 'AvantGardeGothicITCW01D 731075', 'AvantGardeGothicITCW01Dm', 'Helvetica', 'sans-serif'
   font-smoothing antialiased
   text-transform uppercase
@@ -26,9 +28,24 @@ a
 
 .sketch
   display none
+  font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
+  font-smoothing antialiased
+  font-size 30px
 
 canvas
   border 1px solid black
+
+.framed-canvas
+  width 400px
+  height 300px
+  position relative
+  img
+    width 400px
+    height 300px
+    position absolute
+  canvas
+    position absolute
+    border none
 
 form
   font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
@@ -42,6 +59,16 @@ form
     text-transform uppercase
     letter-spacing 1px
     text-align center
+  label > img
+    opacity 1
+    height 400px
+    width 400px
+  label > img:hover
+    opacity .5
+
+#results
+  display none
+
 
 garamond()
   font-family 'Adobe Garamond W08','adobe-garamond-pro','AGaramondPro-Regular','Times New Roman','Times','serif'
@@ -141,3 +168,45 @@ avant-garde()
     &, &:hover
       background-color gray-darker-color
       color rgba(white, 0.75)
+
+@keyframes spin
+  100%
+    transform rotate(360deg)
+
+spinner(width=25px, height=6px, color=black)
+  background color
+  width width
+  height height
+  position absolute
+  top "calc(50% - %s / 2)" % height
+  left "calc(50% - %s / 2)" % width
+  animation spin 1s infinite linear
+
+.loading-spinner
+  spinner(25px, 6px)
+
+.loading-spinner-small
+  spinner(20px, 4px)
+
+.loading-spinner-white
+  @extends .loading-spinner
+  background white
+
+.loading-spinner-small-white
+  @extends .loading-spinner-small
+  background white
+
+@keyframes fade
+  0%
+    opacity 0
+  50%
+    opacity 1
+  100%
+    opacity 0
+
+.loading-ellipsis > span
+  letter-spacing 2px
+  for i in 1 2 3
+    &:nth-child({i})
+      animation fade 1s infinite
+      animation-delay i * 0.2s
